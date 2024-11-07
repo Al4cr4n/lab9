@@ -25,18 +25,22 @@
         <th:block th:each="drink, iterStat : ${cocktails}">
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <img th:src="${drink.strDrinkThumb}" class="card-img-top" alt="...">
+                    <a th:href="@{/cocktails/detail(id=${drink.idDrink})}">
+                        <img th:src="${drink.strDrinkThumb}" class="card-img-top" alt="...">
+                    </a>
                     <div class="card-body">
-                        <h5 class="card-title text-center" th:text="${drink.strDrink}"></h5>
+                        <a th:href="@{/cocktails/detail(id=${drink.idDrink})}" class="text-decoration-none">
+                            <h5 class="card-title text-center" th:text="${drink.strDrink}"></h5>
+                        </a>
                     </div>
                 </div>
             </div>
             <th:block th:if="${iterStat.index % 3 == 2}">
             </th:block>
         </th:block>
-    </div><div class="row">
-
-</div>
+    </div>
+    <div class="row">
+    </div>
 </div>
 
 <!-- Incluye Bootstrap JS y dependencias -->
@@ -45,3 +49,4 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+

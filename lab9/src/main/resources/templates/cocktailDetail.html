@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${cocktail.strDrink}">Cocktail Detail</title>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: auto;
+            font-family: Arial, sans-serif;
+        }
+        .title {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .subtitle {
+            font-size: 1em;
+            color: gray;
+            font-weight: bold;
+        }
+        .section-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="title" th:text="${cocktail.strDrink}"></h1>
+    <img th:src="${cocktail.strDrinkThumb}" alt="Drink Image" style="width:100%; max-width: 300px;">
+    <p class="subtitle" th:text="${cocktail.strCategory} + ' - ' + ${cocktail.strAlcoholic} + ' - ' + ${cocktail.strGlass}"></p>
+
+    <h2 class="section-title">Instructions</h2>
+    <p th:text="${cocktail.strInstructions}"></p>
+
+    <h2 class="section-title">Ingredients</h2>
+    <ul>
+        <li th:if="${cocktail.strIngredient1 != null}" th:text="${cocktail.strIngredient1} + ' - ' + ${cocktail.strMeasure1}"></li>
+        <li th:if="${cocktail.strIngredient2 != null}" th:text="${cocktail.strIngredient2} + ' - ' + ${cocktail.strMeasure2}"></li>
+        <li th:if="${cocktail.strIngredient3 != null}" th:text="${cocktail.strIngredient3} + ' - ' + ${cocktail.strMeasure3}"></li>
+        <li th:if="${cocktail.strIngredient4 != null}" th:text="${cocktail.strIngredient4}"></li>
+    </ul>
+</div>
+</body>
+</html>

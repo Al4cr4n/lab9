@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Cóctel</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1 th:text="${cocktail.strDrink}"></h1>
+    <div class="row">
+        <div class="col-md-6">
+            <img th:src="${cocktail.strDrinkThumb}" alt="Imagen de Cóctel" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <p><strong>Categoría:</strong> <span th:text="${cocktail.strCategory}"></span></p>
+            <p><strong>Tipo de Bebida:</strong> <span th:text="${cocktail.strAlcoholic}"></span></p>
+            <p><strong>Instrucciones:</strong> <span th:text="${cocktail.strInstructions}"></span></p>
+            <p><strong>Ingredientes:</strong></p>
+            <ul>
+                <li th:each="ingredient : ${cocktail.ingredients}" th:text="${ingredient}"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
