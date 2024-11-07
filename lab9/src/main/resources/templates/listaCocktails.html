@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TELEDRINK</title>
+    <!-- Incluye Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+        .card-img-top {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">TELEDRINK</h1>
+    <div class="row">
+        <th:block th:each="drink, iterStat : ${cocktails}">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img th:src="${drink.strDrinkThumb}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-center" th:text="${drink.strDrink}"></h5>
+                    </div>
+                </div>
+            </div>
+            <th:block th:if="${iterStat.index % 3 == 2}">
+            </th:block>
+        </th:block>
+    </div><div class="row">
+
+</div>
+</div>
+
+<!-- Incluye Bootstrap JS y dependencias -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
