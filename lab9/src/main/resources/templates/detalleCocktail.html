@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Cóctel</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+<div class="container mt-4 text-center">
+    <h1 th:text="${cocktail.strDrink}"></h1>
+    <button class="btn btn-success my-3">
+        <i class="fas fa-check"></i> Favorite
+    </button>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <!-- Ajusta el tamaño de la imagen usando una clase personalizada -->
+            <img th:src="${cocktail.strDrinkThumb}" alt="Imagen de Cóctel" class="img-fluid rounded" style="max-width: 70%; height: auto;">
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <p class="mt-3 font-weight-bold" th:text="${cocktail.strCategory} + ' - ' + ${cocktail.strAlcoholic} + ' - ' + ${cocktail.strGlass}"></p>
+
+            <h4 class="font-weight-bold mt-4">Instructions</h4>
+            <p th:text="${cocktail.strInstructions}"></p>
+
+            <h4 class="font-weight-bold mt-4">Ingredients</h4>
+            <ul class="list-unstyled">
+                <li th:each="ingredient, iterStat : ${ingredients}">
+                    <span class="mr-2">•</span><span th:text="${ingredient} + ' - ' + ${measures[iterStat.index]}"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

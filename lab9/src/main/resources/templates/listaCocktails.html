@@ -16,13 +16,21 @@
             height: 200px;
             object-fit: cover;
         }
+        .favorite-btn-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
 <div class="container">
     <h1 class="text-center">TELEDRINK</h1>
-    <!-- Botón de "List my favorite drinks" -->
-    <button class="btn btn-primary" onclick="window.location.href='/favorites'">List my favorite drinks</button>
+    <!-- Botón de "List my favorite drinks" debajo del título -->
+    <div class="favorite-btn-container">
+        <!-- Botón "List my favorite drinks" -->
+        <button class="btn btn-primary" onclick="window.location.href='/cocktails/favorites'">List my favorite drinks</button>
+
+    </div>
 
     <div class="row">
         <th:block th:each="drink, iterStat : ${cocktails}">
@@ -37,9 +45,7 @@
             <th:block th:if="${iterStat.index % 3 == 2}">
             </th:block>
         </th:block>
-    </div><div class="row">
-
-</div>
+    </div>
 </div>
 
 <!-- Incluye Bootstrap JS y dependencias -->
