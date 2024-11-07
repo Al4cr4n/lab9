@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite Drinks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">My Favorite Drinks</h1>
+    <div class="row">
+        <div th:each="favorite : ${favorites}" class="col-md-4">
+            <div class="card mb-4">
+                <a th:href="@{/cocktails/{id}(id=${favorite.drinkId})}">
+                    <img th:src="${favorite.drinkImageUrl}" class="card-img-top" alt="Drink Image">
+                </a>
+                <div class="card-body text-center">
+                    <h5 class="card-title" th:text="${favorite.drinkName}"></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

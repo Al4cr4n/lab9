@@ -21,6 +21,9 @@
 <body>
 <div class="container">
     <h1 class="text-center">TELEDRINK</h1>
+    <!-- Botón de "List my favorite drinks" -->
+    <button class="btn btn-primary" onclick="window.location.href='/favorites'">List my favorite drinks</button>
+
     <div class="row">
         <th:block th:each="drink, iterStat : ${cocktails}">
             <div class="col-md-4 mb-4">
